@@ -1,6 +1,5 @@
 import {  Router, Request, Response } from 'express'
 import { Utils } from '../utils/utils'
-
 import BalanceAPI from './balance.api'
 
 const balanceHandler = Router()
@@ -8,6 +7,7 @@ const balance = new BalanceAPI()
             
 
 balanceHandler.all('/',balanceController)
+
 
 async function balanceController(req:Request, res:Response){
   

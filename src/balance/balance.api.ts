@@ -1,3 +1,4 @@
+import app from '../app';
 import { IHttpRequest } from '../models/http-request.model'
 import { Utils } from '../utils/utils';
 
@@ -19,10 +20,15 @@ export default class BalanceAPI{
 
     private async descargarPDF(httpRequest:IHttpRequest){
 
-        // Get balance
+        // GetBalance()
+
         // Crear balance
         // Convertir a PDF
         // Descargar 
+
+        //crearBalanceHTML()
+        //crearBalancePDF()
+
 
         return {
           headers:{

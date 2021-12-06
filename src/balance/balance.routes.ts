@@ -15,7 +15,6 @@ async function balanceController(req:Request, res:Response){
 
     try {
         const result = await balance.handleRequest(httpRequest)
-        console.log({result})
         const { headers,statusCode,data } = result
 
         res

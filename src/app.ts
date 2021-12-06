@@ -1,8 +1,6 @@
 import express, { urlencoded } from 'express'
 import path  from 'path'
 import balanceHandler from './balance/balance.routes'
-import exampleRouter from './example/example.router'
-
 
 
 const app = express()
@@ -17,7 +15,6 @@ app.use(
 
 //routing
 app.use('/api/balances', balanceHandler)
-app.use('/api/examples', exampleRouter)
 
 
 export default app;

@@ -23,6 +23,17 @@ export class Utils{
               })
           }
     }
-
+    static makeHttpBadRequestResponse(errorMessage:string = 'Bad request.'){
+        return {
+            headers: {
+                'Content-Type': 'application/json'
+              },
+              statusCode:409,
+              data: JSON.stringify({
+                success: false,
+                error: errorMessage
+              })
+          }
+    }
 
 }

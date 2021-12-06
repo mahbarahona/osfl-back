@@ -1,12 +1,23 @@
-import {Request,Response } from 'express'
+import { IHttpRequest } from '../models/http-request.model'
+import { Utils } from '../utils/utils';
 
 export default class BalanceAPI{
 
-//! eliminar dependencias de objetos express, solo recibir y devolver objetos,(no req,no resp)
-
-
     constructor(){}
-    descargarPDF(req:Request, res:Response){
+
+    async handleRequest(httpRequest:IHttpRequest){
+
+        switch(httpRequest.method){
+            case 'GET':
+                return await this.descargarPDF(httpRequest)
+
+            default:
+                return Utils.makeHttpBadRequestResponse()
+        }
+    }
+
+
+    private async descargarPDF(httpRequest:IHttpRequest){
 
         // Get balance
         // Crear balance
@@ -14,37 +25,13 @@ export default class BalanceAPI{
         // Descargar 
 
         return {
-            statusCode:'',
-            data:[]
+          headers:{
+              'Content-Type':'application/json'
+          },
+          statusCode:200,
+          data:'descargar balance'
         }
     }
-    getBalance(req:Request, res:Response){
-        return res.status(200).send({
-            method:'GET',
-            params:req.params['id']
-        })
-    }
-    createBalance(req:Request, res:Response){
-        return res.status(200).send({
-            method:'POST',
-            params:req.params['id']
-        })
-    }
-    updateBalance(req:Request, res:Response){
-        return res.status(200).send({
-            method:'UPDATE',
-            params:req.params['id']
-        })
-    }
-    deleteBalance(req:Request, res:Response){
-        return res.status(200).send({
-            method:'DELETE',
-            params:req.params['id']
-        })
-    }
-
-
-
     
 }
 

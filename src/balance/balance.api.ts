@@ -1,5 +1,6 @@
 import app from '../app';
 import { IHttpRequest } from '../models/http-request.model'
+import { IRegistroBalance } from '../models/registro-balance.model';
 import { Utils } from '../utils/utils';
 
 export default class BalanceAPI{
@@ -20,15 +21,23 @@ export default class BalanceAPI{
 
     private async descargarPDF(httpRequest:IHttpRequest){
 
-        // GetBalance()
+        
 
-        // Crear balance
-        // Convertir a PDF
-        // Descargar 
+        /*
+            * VALIDAR DATOS DE ENTRADA
 
-        //crearBalanceHTML()
-        //crearBalancePDF()
-
+            * CREAR el BALANCE()
+                * crear titulo-html
+                * crear lista resumen
+                    saldo
+                    total ingresos
+                    cantidad ingresos   
+                    total egresos
+                    cantidad egresos
+                * por cada registro
+                    crear un registro-html
+                * appendear lista de registros-html
+        */
 
         return {
           headers:{
@@ -39,6 +48,31 @@ export default class BalanceAPI{
         }
     }
     
+
+    private crearRowHTMLBalance(row:IRegistroBalance){
+        const {id,fecha,titulo,descripcion,numero_documento,tipo,monto,saldo} = row        
+        return ` 
+            <tr>
+                <td>${id}</td>
+                <td>${fecha}</td>
+                <td>${titulo}</td>
+                <td>${descripcion}</td>
+                <td>${numero_documento}</td>
+                <td>${tipo}</td>
+                <td>${monto}</td>
+                <td>${saldo}</td>
+            </tr>
+        `
+    }
+
+    private getSaldoRegistro(anterior:number, actual:number){
+        return anterior + actual
+    }
+
+    private getMontoByTipo(tipo:string, monto:number){
+        return  tipo === '0' ? -monto : monto
+    }
+
 }
 
 

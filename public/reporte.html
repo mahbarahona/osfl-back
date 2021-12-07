@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        :root{
+            --color-success: green;
+            --font-size: 16px;
+        }
+
+        html{
+            font-size: var(--font-size);
+        }
+
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1rem;
+            display: flex;
+            justify-content: center;
+
+            width: 100%;
+            height: 100vh;
+
+            background-color: rgba(0,0,0, 0.1);
+
+            padding: 3rem 0;
+        }
+
+        main{
+
+            width: 80%;
+            border-radius: 4px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0, 0.1);
+        }
+
+        .reporte{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+
+        .reporte__resumen{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+
+        .reporte__lista td{
+            font-size: .8rem;
+            text-align: center;
+            padding: 1rem;
+        }
+        .reporte__lista th{
+            /* padding: 2.5rem; */
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <main>
+        <section class="reporte">
+
+            <article class="reporte__header">
+                <h1 >nombre de la organizacion</h1>
+                <p>mes del balance</p>
+            </article>
+
+            <article>
+                <ul class="reporte__resumen">
+                    <li>saldo</li>
+                    <li>ingresos + cant</li>
+                    <li>egresos + cant</li>
+                </ul>
+            </article>
+
+            <article >
+                <table class="reporte__lista">
+                    <thead>
+                        <th>#</th>
+                        <th>Fecha</th>
+                        <th>Titulo</th>
+                        <th>Descripcion</th>
+                        <th>Numero documento</th>
+                        
+                        <th>Tipo</th>
+                        <th>Monto</th>
+                        <th>Saldo</th>
+                    </thead>
+                    <tbody>
+                        <!--  -->
+                        <tr>
+                            <td>1</td>
+                            <td>12/12/21</td>
+                            <td>Saldo Anterior</td>
+                            <td>Saldo del mes de Noviembre</td>
+                            <td>N/A</td>
+                            <td>Ingreso</td>
+                            <td>100.000</td>
+                            <td>100.000</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>12/12/21</td>
+                            <td>Pago de cuotas</td>
+                            <td> - </td>
+                            <td>N/A</td>
+                            <td>Ingreso</td>
+                            <td>30.000</td>
+                            <td>130.000</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>12/12/21</td>
+                            <td>Pago de Luz</td>
+                            <td>Luz del local</td>
+                            <td>ABC12344422</td>
+                            <td>Egreso</td>
+                            <td>70.000</td>
+                            <td>60.000</td>
+                        </tr>
+                        <!--  -->
+                    </tbody>
+                </table>
+            </article>
+        </section>
+    </main>
+</body>
+</html>
